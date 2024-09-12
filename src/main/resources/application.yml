@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: security-api
+  datasource:
+    url: jdbc:postgresql://localhost:5433/security
+    username: shreesha
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
