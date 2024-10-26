@@ -31,9 +31,8 @@ class SecurityConfig(
             .authorizeHttpRequests {
                 it
                     .requestMatchers(HttpMethod.POST, "/signup", "/login").permitAll()
-                    .requestMatchers(HttpMethod.PUT, "/error").permitAll()
-                    .requestMatchers(HttpMethod.PUT, "/update_role/**").authenticated()
-                    .anyRequest().authenticated()
+                    .requestMatchers(HttpMethod.POST, "/update_role/**").hasAuthority("USER_ADMIN")
+                    .anyRequest().permitAll()
             }
             .httpBasic(Customizer.withDefaults())
             .sessionManagement{

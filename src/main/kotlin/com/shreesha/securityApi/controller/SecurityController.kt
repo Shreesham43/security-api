@@ -1,9 +1,6 @@
 package com.shreesha.securityApi.controller
 
-import com.shreesha.securityApi.domain.Authority
-import com.shreesha.securityApi.domain.User
-import com.shreesha.securityApi.domain.UserOutput
-import com.shreesha.securityApi.domain.UserPrincipal
+import com.shreesha.securityApi.domain.*
 import com.shreesha.securityApi.service.UserService
 import org.springframework.web.bind.annotation.*
 
@@ -22,9 +19,9 @@ class SecurityController(
         return userService.verify(user)
     }
 
-    @PutMapping("/update_role/{userId}", consumes = ["application/json"])
-    fun updateRole(@PathVariable userId: String, @RequestBody authorities: MutableList<Authority>){
-        return userService.updateAuthority(userId, authorities)
+    @PutMapping("/update_role/{userId}")
+    fun updateRole(@PathVariable userId: String, @RequestBody authorities: AuthorityList){
+        return userService.updateAuthority(userId, authorities.authorities)
     }
 
     @GetMapping("/validate_token")

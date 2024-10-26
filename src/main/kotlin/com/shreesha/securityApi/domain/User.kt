@@ -11,7 +11,6 @@ data class User(
     val userId: String?,
     val username: String,
     val password: String,
-    @JsonFormat(with = [JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY])
     val authorities: MutableCollection<out Authority> = mutableSetOf(),
     val isAccountExpired: Boolean = false,
     val isAccountLocked: Boolean = false,
