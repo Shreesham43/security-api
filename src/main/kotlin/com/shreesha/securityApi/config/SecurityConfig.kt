@@ -1,8 +1,10 @@
 package com.shreesha.securityApi.config
 
+import com.shreesha.securityApi.domain.Authority
 import com.shreesha.securityApi.filter.JwtFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpMethod
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.AuthenticationProvider
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider
@@ -29,7 +31,9 @@ class SecurityConfig(
             .csrf { customizer -> customizer.disable() }
             .authorizeHttpRequests {
                 it
-                    .requestMatchers("signup", "login").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/signup", "/login").permitAll()
+                    .requestMatchers(HttpMethod.PUT, "/error").permitAll()
+                    .requestMatchers(HttpMethod.PUT, "/update_role/**").authenticated()
                     .anyRequest().authenticated()
             }
             .httpBasic(Customizer.withDefaults())

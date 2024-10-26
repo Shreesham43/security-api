@@ -2,10 +2,8 @@ package com.shreesha.securityApi.domain
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
-import org.springframework.stereotype.Component
 
 class UserPrincipal(private val user: User): UserDetails {
-
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
         return user.authorities
     }
