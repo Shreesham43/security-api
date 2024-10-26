@@ -5,7 +5,6 @@ import com.shreesha.securityApi.domain.User
 import com.shreesha.securityApi.domain.UserOutput
 import com.shreesha.securityApi.domain.UserPrincipal
 import com.shreesha.securityApi.service.UserService
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.web.bind.annotation.*
 
 @RestController

@@ -1,6 +1,5 @@
 package com.shreesha.securityApi.config
 
-import com.shreesha.securityApi.domain.Authority
 import com.shreesha.securityApi.filter.JwtFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
